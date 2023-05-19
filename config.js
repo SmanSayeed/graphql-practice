@@ -1,0 +1,1 @@
+export const mongoUrl = "mongodb+srv://saad:1234@cluster0.slyff8u.mongodb.net/admin?authSource=admin&replicaSet=atlas-94qutz-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true"

@@ -1,0 +1,49 @@
+
+# Write your query or mutation here
+query getAllUsers{
+greet
+  users{
+    id
+    username
+    email
+    phone
+    
+  }
+} 
+
+
+query getAllQuotes {
+  	quotes{
+      name
+      by
+    }
+}
+
+query getQuoteByUser{
+  iquote(by:"2"){
+    name
+  }
+}
+
+
+
+query getUserById{
+  user(id:"1"){
+    username
+  }
+}
+
+
+mutation {
+  signupUserDummy(
+    username:"saad",
+    email:"saad@gmail.com",
+    phone:"324324"
+  ){
+    id
+    username
+    email
+    
+  }
+  
+}

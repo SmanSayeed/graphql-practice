@@ -10,4 +10,4 @@ const quoteSchema = new mongoose.Schema({
     },
 })
 
-mongoose.model("User",quoteSchema);
+mongoose.model("Quote",quoteSchema);

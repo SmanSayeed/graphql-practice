@@ -35,15 +35,32 @@ query getUserById{
 
 
 mutation {
-  signupUserDummy(
+  signupUser(
     username:"saad",
     email:"saad@gmail.com",
     phone:"324324"
   ){
     id
     username
-    email
-    
+    email    
   }
   
+}
+
+# Signin 
+
+mutation LoginUser(
+  $userLogin:UserLoginInput!){
+	user:LoginUser(
+   userLogin:$userLogin
+  ){
+    token
+  }
+  
+}
+
+mutation createQuote{
+ quote: createQuote(
+    name:"I m another quote"
+  )
 }

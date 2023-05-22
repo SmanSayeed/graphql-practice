@@ -2,8 +2,8 @@ import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-co
 import { ApolloServer } from "apollo-server-express";
 import express from "express";
 import mongoose from "mongoose";
-import { mongoUrl } from "./config.js";
-
+import { JWT_SECRET, mongoUrl } from "./config.js";
+import jwt  from "jsonwebtoken";
 import typeDefs from "./schemaGql.js";
 const app = express();
 mongoose.connect(mongoUrl,{
@@ -18,15 +18,24 @@ mongoose.connection.on("error",(err)=>{
 })
 
 //import modals here
-import './models/Quotes.js'
-import './models/User.js'
+import './models/Quotes.js';
+import './models/User.js';
 import resolvers from "./resolvers.js";
 
+//this is middlewear
+const context = ({ req }) => {
+    const {authorization} = req.headers 
+    if(authorization){
+       const {userId} = jwt.verify(authorization,JWT_SECRET)
+       return {userId}
+    }
+}
 const server = new ApolloServer({
     typeDefs,
     resolvers,
     plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
-    context: ({ req }) => ({ req }),
+    // context: ({ req }) => ({ req }),
+     context,
     introspection: true,
     playground: true,
   });

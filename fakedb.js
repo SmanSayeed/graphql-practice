@@ -1,15 +1,17 @@
 export const usersData = [
 	{
-        id:"1",
+        _id:"1",
 		username: "Uriel Meyers",
 		phone: "1-536-754-4249",
-		email: "velit@google.couk"
+		email: "velit@google.couk",
+        password:"1234"
 	},
 	{
-        id:"2",
+        _id:"2",
 		username: "Garrison Shelton",
 		phone: "1-419-862-5005",
-		email: "fermentum.arcu@hotmail.ca"
+		email: "fermentum.arcu@hotmail.ca",
+        password:"1234"
 	},
 
 ];
